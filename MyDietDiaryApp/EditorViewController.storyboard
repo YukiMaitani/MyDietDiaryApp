@@ -38,6 +38,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-Qu-6ze">
+                                <rect key="frame" x="40" y="722" width="334" height="40"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3rN-PF-IaM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="保存">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,9 +56,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5dS-Ep-Jf4" secondAttribute="trailing" constant="40" id="2TL-hL-17L"/>
                             <constraint firstItem="BA4-wA-VzO" firstAttribute="top" secondItem="EDo-Bx-8yp" secondAttribute="bottom" constant="20" id="B3A-ER-jEs"/>
                             <constraint firstItem="5dS-Ep-Jf4" firstAttribute="top" secondItem="1Tr-NT-YLJ" secondAttribute="bottom" constant="20" id="G3w-Fl-XIW"/>
+                            <constraint firstItem="tCn-Qu-6ze" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="G8R-Nq-uQ7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tCn-Qu-6ze" secondAttribute="trailing" constant="40" id="PFA-j2-0CG"/>
                             <constraint firstItem="5dS-Ep-Jf4" firstAttribute="leading" secondItem="1Tr-NT-YLJ" secondAttribute="leading" id="b9P-Mi-xgn"/>
                             <constraint firstItem="EDo-Bx-8yp" firstAttribute="top" secondItem="5dS-Ep-Jf4" secondAttribute="bottom" constant="20" id="c87-oR-nG6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1Tr-NT-YLJ" secondAttribute="trailing" constant="40" id="ciZ-K9-MPZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tCn-Qu-6ze" secondAttribute="bottom" constant="100" id="dn3-QF-hWb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BA4-wA-VzO" secondAttribute="trailing" constant="40" id="ed8-XA-Zoy"/>
                             <constraint firstItem="EDo-Bx-8yp" firstAttribute="leading" secondItem="1Tr-NT-YLJ" secondAttribute="leading" id="ove-6B-NqH"/>
                             <constraint firstItem="1Tr-NT-YLJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="qOk-L5-noC"/>
@@ -56,7 +70,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="inputDateTextField" destination="5dS-Ep-Jf4" id="0uK-VI-P5n"/>
                         <outlet property="inputWeightTextField" destination="BA4-wA-VzO" id="cyp-Sx-ifL"/>
+                        <outlet property="saveButton" destination="tCn-Qu-6ze" id="eVW-dR-k1v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,6 +83,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
