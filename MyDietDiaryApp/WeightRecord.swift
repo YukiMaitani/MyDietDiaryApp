@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class weightRecord:Object{
+class WeightRecord:Object{
     override static func primaryKey() -> String? {
         return "id"
     }

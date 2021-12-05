@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import RealmSwift
 
 class CalendarViewController:UIViewController{
     
@@ -19,7 +20,16 @@ class CalendarViewController:UIViewController{
         super.viewDidLoad()
         configureCalendar()
         configureButton()
+        calendarView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getRecord()
+        calendarView.reloadData()
+    }
+    
+    var recordList:[WeightRecord] = []
     
     func configureCalendar(){
         calendarView.appearance.headerDateFormat = "yyyy年MM月dd日"
@@ -45,5 +55,18 @@ class CalendarViewController:UIViewController{
         let storyboard = UIStoryboard(name: "EditorViewController", bundle: nil)
         guard let editorViewController = storyboard.instantiateInitialViewController() as? EditorViewController else{return}
         present(editorViewController, animated: true)
+    }
+    
+    func getRecord(){
+        let realm = try! Realm()
+        recordList = Array(realm.objects(WeightRecord.self))
+    }
+}
+
+extension CalendarViewController:FSCalendarDataSource{
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let dateList = recordList.map({$0.date.zeroclock})
+        let isEqualDate = dateList.contains(date.zeroclock)
+        return isEqualDate ? 1:0
     }
 }
