@@ -28,6 +28,7 @@ class CalendarViewController:UIViewController{
         super.viewWillAppear(animated)
         getRecord()
         calendarView.reloadData()
+        print("viewWillAppear")
     }
     
     var recordList:[WeightRecord] = []
@@ -58,6 +59,7 @@ class CalendarViewController:UIViewController{
         if let record = record {
             editorViewController.record = record
         }
+        editorViewController.deligate = self
         present(editorViewController, animated: true)
     }
     
@@ -80,5 +82,12 @@ extension CalendarViewController:FSCalendarDelegate{
         calendar.deselect(date)
         guard let record = recordList.first(where: {$0.date.zeroclock == date.zeroclock}) else {return}
         transitionToEditorView(with: record)
+    }
+}
+
+extension CalendarViewController:EditorViewControllerDeligate{
+    func recordUpdate() {
+        getRecord()
+        calendarView.reloadData()
     }
 }
