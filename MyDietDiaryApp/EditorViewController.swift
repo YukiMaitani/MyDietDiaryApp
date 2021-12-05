@@ -21,9 +21,7 @@ class EditorViewController:UIViewController{
         configureWightTextField()
         configureDateTextField()
         configureSaveButton()
-        let realm = try! Realm()
-        let firstRecord = realm.objects(WeightRecord.self).first
-        print(firstRecord)
+        print(record)
     }
     @objc func didTapDone(){
         view.endEditing(true)

@@ -21,6 +21,7 @@ class CalendarViewController:UIViewController{
         configureCalendar()
         configureButton()
         calendarView.dataSource = self
+        calendarView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,10 +51,13 @@ class CalendarViewController:UIViewController{
     func configureButton(){
         addButton.layer.cornerRadius = addButton.bounds.width/2
     }
-    
-    func transitionToEditorView(){
+    //新規登録時と登録した日付タップ時呼ぶメソッド。新規登録時はデータがないためオプショナル型でデフォルトnilにしている
+    func transitionToEditorView(with record:WeightRecord? = nil){
         let storyboard = UIStoryboard(name: "EditorViewController", bundle: nil)
         guard let editorViewController = storyboard.instantiateInitialViewController() as? EditorViewController else{return}
+        if let record = record {
+            editorViewController.record = record
+        }
         present(editorViewController, animated: true)
     }
     
@@ -68,5 +72,13 @@ extension CalendarViewController:FSCalendarDataSource{
         let dateList = recordList.map({$0.date.zeroclock})
         let isEqualDate = dateList.contains(date.zeroclock)
         return isEqualDate ? 1:0
+    }
+}
+
+extension CalendarViewController:FSCalendarDelegate{
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        calendar.deselect(date)
+        guard let record = recordList.first(where: {$0.date.zeroclock == date.zeroclock}) else {return}
+        transitionToEditorView(with: record)
     }
 }
