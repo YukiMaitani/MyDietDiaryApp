@@ -28,7 +28,6 @@ class CalendarViewController:UIViewController{
         super.viewWillAppear(animated)
         getRecord()
         calendarView.reloadData()
-        print("viewWillAppear")
     }
     
     var recordList:[WeightRecord] = []

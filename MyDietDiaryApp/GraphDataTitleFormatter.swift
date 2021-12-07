@@ -11,6 +11,8 @@ import Charts
 class GraphDataTitleFormatter:IAxisValueFormatter{
     var dateList:[Date] = []
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        print(value)
+        print(dateList)
         let index = Int(value)
         guard dateList.count > index else {return ""}
         let targetDate = dateList[index]
