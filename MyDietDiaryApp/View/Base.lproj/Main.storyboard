@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Graph View Controller-->
         <scene sceneID="gwL-VF-BvD">
             <objects>
                 <viewController id="Hpr-nf-ccu" customClass="GraphViewController" customModule="MyDietDiaryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                             <constraint firstItem="iwI-va-OGJ" firstAttribute="bottom" secondItem="tMw-9Z-2ta" secondAttribute="bottom" constant="100" id="y6n-EY-ez5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8FR-ge-PN7"/>
+                    <tabBarItem key="tabBarItem" title="" image="graphIcon" id="8FR-ge-PN7"/>
                     <connections>
                         <outlet property="endDateTextField" destination="neV-ZU-jRf" id="Esg-Fv-ahs"/>
                         <outlet property="graphView" destination="tMw-9Z-2ta" id="mz8-2W-ZaY"/>
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="296" y="394"/>
         </scene>
-        <!--Item 1-->
+        <!--Calendar View Controller-->
         <scene sceneID="ct8-Ln-gMJ">
             <objects>
                 <viewController id="h5U-NG-Nl3" customClass="CalendarViewController" customModule="MyDietDiaryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,7 +127,7 @@
                             <constraint firstAttribute="trailing" secondItem="QgI-FZ-4mU" secondAttribute="trailing" constant="20" id="fBr-8s-cMx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="axg-hF-B83"/>
+                    <tabBarItem key="tabBarItem" title="" image="calendarIcon" id="axg-hF-B83"/>
                     <connections>
                         <outlet property="addButton" destination="QgI-FZ-4mU" id="cIj-yp-epF"/>
                         <outlet property="calendarView" destination="gZe-sc-Bcn" id="iEW-TG-T1h"/>
@@ -157,6 +157,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendarIcon" width="25" height="25"/>
+        <image name="graphIcon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
